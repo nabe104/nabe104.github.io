@@ -110,6 +110,21 @@ function render(){
 	effect.render(scene, camera);
 
 	controls.update();
+	
+	//ポイントが乗っているオブジェクトを取得
+	
+	raycaster.setFromCamera( cursor, camera );
+	var intersects = raycaster.intersectObjects( targets );
+	if( intersects.length > 0 ){
+		if( scopedObj != intersects[ 0 ].object ){
+			if(scopedObj ) scopedObj.scale.set(1,1,1);
+			scopedObj = intersects[ 0 ].object;
+			scopedObj.scale.set(2,2,2);
+		}
+	}else{
+		if( scopedObj )scopedObj.scale.set(1,1,1);
+		scopedObj = null;
+	}
 }
 render();
 
