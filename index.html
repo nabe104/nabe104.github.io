@@ -60,18 +60,32 @@ var light = new THREE.AmbientLight( 0xffffff );
 // 環境光をシーンへ追加
 scene.add( light );
 	    
+// ２画面用のボタンとファンクション
+<a href="javascript:void(0);" class="bt-f2" onClick="Fnk_TowSC()">tow screen</a>
+<script>
+.....
+flg_TowSC = false,//追加2
+.....
+//追加2
+function Fnk_TowSC() {
+flg_TowSC = true;
+var fulltarget = document.getElementsByClassName('fullsc')[0];
+requestFullscreen(fulltarget);//フルスクリーンの呼び出しも入れておく
+}
+</script>
+	    
 // テキストの追加
-var text2 = document.createElement('div');
-text2.style.position = 'absolute';
-//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
-text2.style.width = 100;
-text2.style.height = 100;
-text2.style.backgroundColor = " ";
-//text2.style.textColor = " ";
-text2.innerHTML = "nabe104";
-text2.style.top = 550 + 'px';
-text2.style.left = 600 + 'px';
-document.body.appendChild(text2);
+//var text2 = document.createElement('div');
+//text2.style.position = 'absolute';
+///text2.style.zIndex = 1;    /// if you still don't see the label, try uncommenting this
+//text2.style.width = 100;
+//text2.style.height = 100;
+//text2.style.backgroundColor = " ";
+///text2.style.textColor = " ";
+//text2.innerHTML = "nabe104";
+//text2.style.top = 550 + 'px';
+//text2.style.left = 600 + 'px';
+//document.body.appendChild(text2);
 
 // DeviceOrientationControlsインスタンス作成
 var controls = new THREE.DeviceOrientationControls( camera );
